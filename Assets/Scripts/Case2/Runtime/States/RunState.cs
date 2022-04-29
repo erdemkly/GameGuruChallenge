@@ -22,13 +22,16 @@ namespace Case2.Runtime.States
         public override void OnStart()
         {
             BlockManager.Instance.NewBlock();
+            GameManager.Instance.player.animator.SetBool("Run",true);
         }
         public override void OnUpdate()
         {
             GameManager.Instance.player.Run();
+            GameManager.Instance.player.CheckGround();
         }
         public override void OnExit()
         {
+            GameManager.Instance.player.animator.SetBool("Run",false);
         }
     }
 }
